@@ -19,7 +19,7 @@ node(){
     }
 
     stage('Package Build') {
-        sh "tar -zcvf bundle.tar.gz dist/automationdemo/"
+        sh "tar -zcvf bundle.tar.gz dist/angular/"
     }
 
     stage('Artifacts Creation') {
@@ -39,6 +39,6 @@ node('awsnode') {
     echo 'Artifacts copied'
 
     echo 'Copy'
-    sh "yes | sudo cp -R bundle.tar.gz /var/www/html && cd /var/www/html && sudo tar -xvf bundle.tar.gz"
+    sh "yes | sudo cp -R bundle.tar.gz /opt/lampp/htdocs && cd /opt/lampp/htdocs && sudo tar -xvf bundle.tar.gz"
     echo 'Copy completed'
 }
